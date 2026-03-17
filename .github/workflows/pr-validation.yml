@@ -1,0 +1,35 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    name: Validate PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Validate docker-compose
+        run: |
+          docker-compose config
+
+      - name: Check backend formatting
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - run: |
+          cd backend
+          ./gradlew check
+          
+      - name: Check frontend formatting
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: |
+          cd frontend
+          npm ci
+          npm run lint
