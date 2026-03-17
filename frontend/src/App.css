@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    background-image: url('./assets/Medical background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+
+.app-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 120, 255, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(0, 120, 255, 0.1);
+}
+
+.header h1 {
+    background: linear-gradient(135deg, #da2323, #f15454);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.header p {
+    color: #2c3e50;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.symptom-checker {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 120, 255, 0.1);
+    border: 1px solid rgba(0, 120, 255, 0.1);
+}
+
+.symptom-checker h2 {
+    color: #fbf9f9; /* Bright blue */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 700;
+    border-left: 5px solid #00ccff;
+    padding-left: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue-gray for good contrast */
+    font-size: 1.2em;
+}
+
+.select-container {
+    margin-bottom: 25px;
+    background: #f8faff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e0eaff;
+}
+
+.selected-count {
+    background: linear-gradient(135deg, #f0f7ff, #e6f0ff);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-size: 1.2em;
+    color: #0066ff;
+    border: 1px solid #cce4ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.selected-count strong {
+    background: linear-gradient(135deg, #0066ff, #00ccff);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 1.1em;
+}
+
+.check-button {
+    background: linear-gradient(135deg, #0066ff, #00ccff);
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    font-size: 1.2em;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+}
+
+.check-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 102, 255, 0.3);
+}
+
+.check-button:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.results-section {
+    margin-top: 30px;
+}
+
+.results-section h3 {
+    color: #0066ff;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #e0eaff;
+    font-weight: 600;
+}
+
+.disease-card {
+    background: #f8faff;
+    border: 1px solid #e0eaff;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 102, 255, 0.05);
+}
+
+.disease-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 102, 255, 0.15);
+    border-color: #0066ff;
+}
+
+.disease-card h4 {
+    color: #0066ff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.disease-card p {
+    color: #2c3e50; /* Dark color for good readability */
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.disease-card p strong {
+    color: #0066ff;
+    min-width: 140px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.match-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00cc88, #00ffaa);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 204, 136, 0.3);
+}
+
+/* Fix for the selected symptoms display */
+.css-1d8n9bt {
+    color: #2c3e50 !important;
+}
+
+/* Make all text in the dropdown readable */
+.css-1hwfws3 {
+    color: #2c3e50 !important;
+}
+
+.css-1g6gooi {
+    color: #2c3e50 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+
+    .symptom-checker {
+        padding: 25px;
+    }
+
+    .symptom-checker h2 {
+        font-size: 1.8em;
+    }
+
+    .disease-card p {
+        flex-direction: column;
+    }
+
+    .disease-card p strong {
+        margin-bottom: 5px;
+    }
+}

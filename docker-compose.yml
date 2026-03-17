@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend      # Changed from . to ./backend
+    ports:
+      - "8081:8080"
+    environment:
+      - NEO4J_URI=neo4j+s://2824ff75.databases.neo4j.io
+      - NEO4J_USERNAME=2824ff75
+      - NEO4J_PASSWORD=eL7pSnPQHp7WhYNvq2zE1VgyoW3dl3FplIceQKo3wc0
+      - NEO4J_DATABASE=2824ff75
+      - SPRING_PROFILES_ACTIVE=production
+    networks:
+      - medgraph-network
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:8081
+    networks:
+      - medgraph-network
+    restart: unless-stopped
+
+networks:
+  medgraph-network:
+    driver: bridge
